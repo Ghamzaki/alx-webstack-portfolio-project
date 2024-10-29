@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Answer the Questions</h1>
+    <form method="POST" action="/quiz">
+        {% for q_id, q_data in questions.items() %}
+            <div class="question-block">
+                <p>{{ q_data['question'] }}</p>
+                {% for option in q_data['options'] %}
+                    <input type="radio" name="{{ q_id }}" value="{{ option }}" required>{{ option }}<br>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
