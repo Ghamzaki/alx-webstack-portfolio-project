@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    text-align:left;
+}
+
+h1 {
+    color: #333;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.question-options {
+    display: flex;
+    gap: 10px;
+}
+form {
+    margin: 20px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    border-color: rgb(127, 255, 138);
+}
+
+#timer {
+    margin-top: 20px;
+    font-size: 20px;
+    color: red;
+}
