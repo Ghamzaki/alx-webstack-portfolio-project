@@ -1,5 +1,5 @@
 window.onload = function() {
-    let time = 60;  // 60 seconds timer
+    let time = 120;  // 120 seconds timer
     const timerDiv = document.getElementById('timer');
     
     const interval = setInterval(function() {
@@ -8,7 +8,7 @@ window.onload = function() {
         
         if (time <= 0) {
             clearInterval(interval);
-            document.forms[0].submit();  // To auto-submit form
+            document.forms[0].submit();  // Auto-submit form
         }
     }, 1000);
 };
