@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Home App</title>
+    <title>Quiz App</title>
 </head>
 <body>
-    <h1>Hello, welcome to the Quiz App</h1>
-    <form action="/" method="POST">
-        <input type="text" name="user_name" required/><br>
-        <input type="password" name="password" required/><br>
+    <h1>Welcome to the Quiz App</h1>
+    <form action="/quiz" method="get">
         <button type="submit">Start Quiz</button>
     </form>
 </body>
