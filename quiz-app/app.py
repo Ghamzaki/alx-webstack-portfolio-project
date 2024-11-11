@@ -19,7 +19,7 @@ def quiz():
             if answers.get(q_id) == q_data['correct']:
                 score += 1
         
-        store_result("user123", score, total)
+        store_result("Ghamzaki", score, total)
         return redirect(url_for('result', score=score, total=total))
 
     return render_template('quiz.html', questions=quiz_questions)
