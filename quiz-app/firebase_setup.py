@@ -1,7 +1,7 @@
 import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import credentials, firestore, db
 
-cred = credentials.Certificate('./interactive-quiz-applica-ff179-firebase-adminsdk-15y82-158895a097.json')
+cred = credentials.Certificate('interactive-quiz-applica-ff179-firebase-adminsdk-15y82-158895a097.json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
