@@ -1,15 +1,13 @@
-import firebase_admin
-from firebase_admin import credentials, firestore, db
+import sqlite3
 
-cred = credentials.Certificate('interactive-quiz-applica-ff179-firebase-adminsdk-15y82-158895a097.json')
-firebase_admin.initialize_app(cred)
+conn = sqlite3.connect('database.db')
+print("connected to database successfully")
 
-db = firestore.client()
+conn.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE NOT NULL, password TEXT NOT NULL)')
+print("users table created successfully")
 
-def store_result(user_id, score, total):
-    data = {
-        'user_id': user_id,
-        'score': score,
-        'total': total
-    }
-    db.collection('quiz_results').add(data)
+conn.execute('CREATE TABLE IF NOT EXISTS quiz_results (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT NOT NULL, score INTEGER NOT NULL, total INTEGER NOT NULL, FOREIGN KEY(username) REFERENCES users(username))')
+print("Quiz result table created successfully")
+
+conn.commit()
+conn.close()
