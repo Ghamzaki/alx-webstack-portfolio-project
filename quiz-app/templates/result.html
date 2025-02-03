@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz_results.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Results</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Quiz Completed</h1>
-        <p>Your Score: {{ score }} out of {{ total }}</p>
-        <a href="/">Try Again</a>
+    <div class="results-container">
+        <h1>Hello {{ username }}, your quiz results are:</h1>
+        <ul class="results-list">
+            {% for score, total in results %}
+                <li class="result-item">You scored {{ score }} out of {{ total }}.</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
     </div>
 </body>
 </html>

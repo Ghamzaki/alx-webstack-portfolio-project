@@ -1,0 +1,67 @@
+/* General reset and layout */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Main container */
+.container {
+    background-color: white;
+    padding: 40px 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h1, h2 {
+    margin: 10px 0;
+    color: #333;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+span {
+    font-size: larger;
+    font-style: italic;
+    color: #007bff;
+}
+
+/* Button container */
+.button-container {
+    margin-top: 30px;
+}
+
+/* Style for the links */
+a {
+    text-decoration: none;
+    display: block;
+    padding: 12px 24px;
+    margin: 10px auto;
+    color: white;
+    background-color: #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 200px;
+}
+
+/* Button hover and active states */
+a:hover {
+    background-color: #0056b3;
+}
+
+a:active {
+    transform: scale(0.98);
+}

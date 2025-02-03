@@ -3,23 +3,32 @@
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
 </head>
 <body>
-    <div id="timer"></div> <!-- Timer display -->
-    <h1>Answer the Questions</h1>
-    <form method="POST" action="/quiz">
-        {% for q_id, q_data in questions.items() %}
-            <div class="question-block">
-                <p>{{ q_data['question'] }}</p>
-                {% for option in q_data['options'] %}
+    <!-- Timer Display -->
+    <div id="timer" class="timer">Time Left: 00:00</div>
+
+    <div class="quiz-container">
+        <h1>Answer the Questions</h1>
+        <form method="POST" action="/quiz" class="quiz-form">
+            {% for q_id, q_data in questions.items() %}
+                <div class="question-block">
+                    <p class="question-text">{{ q_data['question'] }}</p>
                     <div class="question-options">
-                        <input type="radio" name="{{ q_id }}" value="{{ option }}" required>{{ option }}<br>
+                        {% for option in q_data['options'] %}
+                            <label class="option-label">
+                                <input type="radio" name="{{ q_id }}" value="{{ option }}" required>
+                                {{ option }}
+                            </label><br>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-            </div>
-        {% endfor %}
-        <button type="submit">Submit</button>
-    </form>
+                </div>
+            {% endfor %}
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
